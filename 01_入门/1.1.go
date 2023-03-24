@@ -8,6 +8,7 @@ import (
 
 func main() {
 	var s, res string
+	// 获取命令行参数并拼接
 	for _, val := range os.Args {
 		res += val + s
 		s = " "
