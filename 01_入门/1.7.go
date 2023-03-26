@@ -10,18 +10,20 @@ import (
 
 func main() {
 	// 获取命令行参数输入的网址
-	url := os.Args[1]
-	// 向对应网站发送请求
-	res, err := http.Get(url)
-	if err != nil {
-		fmt.Fprint(os.Stderr, err)
-		os.Exit(1)
-	}
-	// 获取响应体,并将其直接拷贝到标准输出流
-	_, err = io.Copy(os.Stdout, res.Body)
-	res.Body.Close()
-	if err != nil {
-		fmt.Fprint(os.Stderr, err)
-		os.Exit(1)
+	urls := os.Args[1:]
+	for _, url := range urls {
+		// 向对应网站发送请求
+		res, err := http.Get(url)
+		if err != nil {
+			fmt.Fprint(os.Stderr, err)
+			os.Exit(1)
+		}
+		// 获取响应体,并将其直接拷贝到标准输出流
+		_, err = io.Copy(os.Stdout, res.Body)
+		res.Body.Close()
+		if err != nil {
+			fmt.Fprint(os.Stderr, err)
+			os.Exit(1)
+		}
 	}
 }
