@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	var x tempconv.Celsius = 12.12
+	var x tempconv.Celsius = -40
 	var y tempconv.Fahrenheit = 222
 	var z tempconv.Kelvin = 0
-	fmt.Println(x.CToK(), y.FToK(), z.KToC())
+	fmt.Println(x.CToF(), y.FToK(), z.KToC())
 }
