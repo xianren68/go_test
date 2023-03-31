@@ -25,9 +25,13 @@ func PopCount(x uint64) int {
 
 // 循环法
 func RangeCount(x uint64) int {
-	var res byte
-	for i := 0; i <= 7; i++ {
-		res += pc[byte(x>>(i*8))]
+	res := 0
+	for i := 0; i < 64; i++ {
+		// 如果是偶数，则最后一位必然为0
+		if x%2 != 0 {
+			res++
+		}
+		x = x >> 1
 	}
-	return int(res)
+	return res
 }
