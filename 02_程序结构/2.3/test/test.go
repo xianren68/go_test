@@ -9,7 +9,6 @@ func init() {
 	for i, _ := range pc {
 		pc[i] = pc[i/2] + byte(i&1)
 	}
-
 }
 
 // 查表法
