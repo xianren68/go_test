@@ -20,10 +20,8 @@ func Visit(links []string, n *html.Node) []string {
 		}
 	}
 	// 递归
-	if n.FirstChild != nil {
-		// 进入子节点
-		links = Visit(links, n.FirstChild)
-	}
+	// 进入子节点
+	links = Visit(links, n.FirstChild)
 	// 继续下一个兄弟节点
 	links = Visit(links, n.NextSibling)
 	return links
