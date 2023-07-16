@@ -13,7 +13,11 @@ func main() {
 	fmt.Println(x.Has(1))
 	fmt.Println(x.Len())
 	c := x.Copy()
+	x.AddAll(66, 88)
 	fmt.Println(c)
 	c.Add(77)
-	fmt.Println(c, x)
+	c.AddAll(5, 6, 7)
+	fmt.Println(c)
+	c.SymmetricDifference(x)
+	fmt.Println(c)
 }
