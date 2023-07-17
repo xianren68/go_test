@@ -6,9 +6,9 @@ func (s *IntSet) Elems() (elems []int) {
 		if val == 0 {
 			continue
 		}
-		for j := 0; j < 64; j++ {
-			if val&uint64(1<<j) != 0 {
-				elems = append(elems, i*64+j)
+		for j := 0; j < ADAPTATION; j++ {
+			if val&uint(1<<j) != 0 {
+				elems = append(elems, i*ADAPTATION+j)
 			}
 		}
 	}

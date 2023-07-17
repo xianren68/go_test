@@ -6,7 +6,7 @@ func (s *IntSet) Len() (count int) {
 		if val == 0 {
 			continue
 		}
-		for j := 0; j < 64; j++ {
+		for j := 0; j < ADAPTATION; j++ {
 			if val&(1<<uint(j)) != 0 {
 				count++
 			}
@@ -19,7 +19,7 @@ func (s *IntSet) Len() (count int) {
 
 // 删除bit数组中的某个元素
 func (s *IntSet) Remove(x int) {
-	index, bit := x/64, uint(x%64)
+	index, bit := x/ADAPTATION, uint(x%ADAPTATION)
 	if index >= len(s.words) {
 		return
 	}
@@ -34,5 +34,5 @@ func (s *IntSet) Clear() {
 
 // 将当前bit数组copy
 func (s *IntSet) Copy() *IntSet {
-	return &IntSet{append([]uint64{}, s.words...)}
+	return &IntSet{append([]uint{}, s.words...)}
 }
