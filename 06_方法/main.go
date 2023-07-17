@@ -20,4 +20,5 @@ func main() {
 	fmt.Println(c)
 	c.SymmetricDifference(x)
 	fmt.Println(c)
+	fmt.Println(c.Elems())
 }
